@@ -19,6 +19,8 @@ namespace TestApp1
                       // Почему new?
                       BirtDate = new DateTime(1990,5,22)
                     };
+            Items items = new Items();
+            items.Fill(0, 1000000);
 
             Console.WriteLine(person);
 

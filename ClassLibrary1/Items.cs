@@ -12,7 +12,11 @@ namespace ClassLibrary1
 
         public void Fill(double value = 0, int n = 100)
         {
-
+            Values.Clear();
+            for (int i = 0; i < n; i++)
+            {
+                Values.Add(value);
+            }
         }
         public void Seq(double Start=0.0, double step=1.0, int n=100)
         {
