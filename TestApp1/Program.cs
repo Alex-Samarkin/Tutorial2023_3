@@ -22,8 +22,29 @@ namespace TestApp1
             Items items = new Items();
             items.Fill(0, 1000000);
             items.Seq(0, 0.1, 1000000);
+            items.RandomDouble(0,10,1000000);
+
+            Console.WriteLine(items.ToLongString(20,20));
+
+            Console.WriteLine(items.TableFirstN(12));
+            Console.WriteLine();
+            Console.WriteLine(items.TableLastN(12));
+
+            Console.WriteLine(items.Table(12));
+
+            Head head = new Head();
+            Console.WriteLine(head);
 
             Console.WriteLine(person);
+
+            Column column = new Column();
+            column.Head = head;
+            column.Items = items;
+            Console.WriteLine( column.ToString() );
+
+            Console.WriteLine();
+            Console.WriteLine(column.Items.Plot(0,100));
+
 
             Console.ReadLine();
         }
