@@ -16,5 +16,16 @@ namespace ClassLibrary1
             var s = new String(pattern[1], w - 2);
             return $"{pattern[0]}{s}{pattern[2]}";
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(HR());
+            sb.AppendLine(Head.ToString());
+            sb.AppendLine(HR());
+            sb.AppendLine(Items.Table(12));
+            sb.AppendLine(HR());
+            return sb.ToString();
+        }
     }
 }
