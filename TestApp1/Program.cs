@@ -8,6 +8,9 @@ using ClassLibrary1;
 
 namespace TestApp1
 {
+    /// <summary>
+    /// gfgfgg
+    /// </summary>
     internal class Program
     {
         static void Main(string[] args)
