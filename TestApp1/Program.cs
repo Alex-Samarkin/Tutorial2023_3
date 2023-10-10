@@ -21,6 +21,7 @@ namespace TestApp1
                     };
             Items items = new Items();
             items.Fill(0, 1000000);
+            items.Seq(0, 0.1, 1000000);
 
             Console.WriteLine(person);
 
