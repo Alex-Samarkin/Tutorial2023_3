@@ -19,6 +19,7 @@ namespace TestApp1
                       // Почему new?
                       BirtDate = new DateTime(1990,5,22)
                     };
+            
             Items items = new Items();
             items.Fill(0, 1000000);
             items.Seq(0, 0.1, 1000000);
@@ -45,6 +46,18 @@ namespace TestApp1
             Console.WriteLine();
             Console.WriteLine(column.Items.Plot(0,100));
 
+            Console.WriteLine(items.Sum());
+            Console.WriteLine(items.Mean());
+
+            ScreenTable table = new ScreenTable();
+
+            table.Add("Items count", items.Values.Count);
+            table.Add("Sum", items.Sum());
+            table.Add("Mean", items.Mean());
+            table.Add("Var", items.Variance());
+            table.Add("SD", items.SD());
+
+            Console.WriteLine(table);
 
             Console.ReadLine();
         }

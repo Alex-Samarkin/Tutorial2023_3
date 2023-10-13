@@ -159,5 +159,33 @@ namespace ClassLibrary1
             return sb.ToString();
         }
 
+        /// <summary>
+        /// сумма элементов
+        /// </summary>
+        /// <returns>сумма элементов</returns>
+        public double Sum() 
+        { 
+            // return Values.Sum(); 
+            var sum = 0.0;
+            foreach (double item in Values)
+            {
+                sum += item;
+            }
+            return sum;
+        }
+        public double S => Values.Sum();
+        public double Sum(double c,double p=2.0)
+        {
+            // return Values.Sum(); 
+            var sum = 0.0;
+            foreach (double item in Values)
+            {
+                sum += Math.Pow(item-c,p);
+            }
+            return sum;
+        }
+        public double Mean() => Sum() / Values.Count;
+        public double Variance() => Sum(Mean(),2.0) / (Values.Count-1);
+        public double SD() => Math.Sqrt(Variance());
     }
 }
