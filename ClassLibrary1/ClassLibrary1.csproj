@@ -44,6 +44,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Column.cs" />
     <Compile Include="Head.cs" />
+    <Compile Include="Histogram.cs" />
+    <Compile Include="HistogramBin.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -66,6 +66,34 @@ namespace ClassLibrary1
                 Values[i] = From+(To-From)*Values[i];
             }
         }
+        double NextDoubleNormal(Random random,double mean, double stdDev)
+        {
+            double u1 = 1.0 - random.NextDouble(); // Uniform random value from 0 to 1
+            double u2 = 1.0 - random.NextDouble(); // Uniform random value from 0 to 1
+
+            double z0 = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Cos(2.0 * Math.PI * u2);
+            return mean + stdDev * z0;
+        }
+        public void RandomNormal(double mean, double stdDev,int n = 100)
+        {
+            Values.Clear();
+            // генератор случайных чисел
+            Random random = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                Values.Add(NextDoubleNormal(random, mean, stdDev));
+            }
+        }
+        public void RandomNormal(int n = 100)
+        {
+            Values.Clear();
+            // генератор случайных чисел
+            Random random = new Random();
+            for (int i = 0; i < n; i++)
+            {
+                Values.Add(NextDoubleNormal(random, 0.0,1.0));
+            }
+        }
         /// <summary>
         /// создание колонки на базе существующей с помощью функции-генератор
         /// </summary>
@@ -187,5 +215,33 @@ namespace ClassLibrary1
         public double Mean() => Sum() / Values.Count;
         public double Variance() => Sum(Mean(),2.0) / (Values.Count-1);
         public double SD() => Math.Sqrt(Variance());
+
+        public List<double> Sorted
+        {
+            get
+            {
+                return Values.OrderBy(x => x).ToList();
+
+            }
+        }
+        public double Max() => Values.Max();
+        public double Min() => Values.Min();
+
+        /// <summary>
+        /// процентиль
+        /// </summary>
+        /// <param name="p"> from 0 to 1</param>
+        /// <returns>percentile</returns>
+        public double Percentile(double p) => Values[(int)(Values.Count * p)];
+
+        public double Percentile(int p) => Values[(int)(Values.Count * (double)p/100)];
+
+        public double Median() => Percentile(50);
+        public double LQ() => Percentile(25);
+        public double UQ() => Percentile(75);
+
+        public double Decil(int d) => Percentile(10*d);
+        
+
     }
 }

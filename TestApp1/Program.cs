@@ -56,8 +56,21 @@ namespace TestApp1
             table.Add("Mean", items.Mean());
             table.Add("Var", items.Variance());
             table.Add("SD", items.SD());
+            table.Add("Min", items.Min());
+            table.Add("Max", items.Max());
+            table.Add("Median", items.Median());
+            table.Add("L Quartil", items.LQ());
+            table.Add("U Quartil", items.UQ());
 
             Console.WriteLine(table);
+
+            Histogram histogram = new Histogram();
+            histogram.Construct(items);
+            Console.WriteLine(histogram);
+
+            items.RandomNormal(1000000);
+            histogram.Construct(items);
+            Console.WriteLine(histogram);
 
             Console.ReadLine();
         }

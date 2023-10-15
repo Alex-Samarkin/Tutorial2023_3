@@ -1,28 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ClassLibrary1.Column">
-    <Position X="4.5" Y="2.75" Width="1.5" />
+    <Position X="4" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACIAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAACIAEAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Column.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Items" />
       <Property Name="Head" />
+      <Property Name="Items" />
     </ShowAsAssociation>
   </Class>
   <Class Name="ClassLibrary1.Head">
-    <Position X="8.25" Y="1.75" Width="1.5" />
+    <Position X="6.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAgAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Head.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClassLibrary1.Items">
-    <Position X="8.25" Y="3.5" Width="1.5" />
+    <Position X="6.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAQAAEAAAAAACAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAghAAAEAQEQEwgEAQACAAUiBAsAECAAAQ=</HashCode>
       <FileName>Items.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibrary1.ScreenTable">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAgAAAAAAAEIAAACBAAAAAADAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScreenTable.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
