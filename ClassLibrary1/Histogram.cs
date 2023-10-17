@@ -16,7 +16,7 @@ namespace ClassLibrary1
 
         public int BinsCount(Items items)
         {
-            return (int)(3.2 * Math.Log10(items.Values.Count) + 1);
+            return (int)(3.322 * Math.Log10(items.Values.Count) + 1);
         }
         public void Construct(Items items)
         {
@@ -28,9 +28,9 @@ namespace ClassLibrary1
             // считаем количество бинов
             var K = BinsCount(items);
             // считаем ширину бинов
-            var h = (items.Values.Max() - items.Values.Min()) / K;
+            var h = (items.Values.Max() - items.Values.Min()) /(double) (K-1);
             // создаем бины
-            for (int i = 0; i < K+1; i++)
+            for (int i = 0; i < K; i++)
             {
                 // создаем бин  
                 var bin = new HistogramBin();
@@ -41,13 +41,9 @@ namespace ClassLibrary1
             // добавляем значения в бины, сейчас это накопленные значения
             foreach (var bin in Bins)
             {
-                bin.Count = sorted.FindLastIndex(x => bin.To >= x);
+                bin.Count = sorted.Count(x => x>bin.From && x<=bin.To );
             }
-            // рассчитываем разницу
-            for (int i = Bins.Count-1; i > 1; i--)
-            {
-                Bins[i].Count = Bins[i].Count - Bins[i - 1].Count;
-            }
+            
         }
         public override string ToString()
         {

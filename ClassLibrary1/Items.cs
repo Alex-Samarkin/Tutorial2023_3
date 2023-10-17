@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -241,7 +242,13 @@ namespace ClassLibrary1
         public double UQ() => Percentile(75);
 
         public double Decil(int d) => Percentile(10*d);
-        
+
+        public int KBins => (int)(3.322*Math.Log10(Values.Count)+1);
+        public double h(int K) => (Max() - Min()) / (KBins - 1);
+        public double CBin(int i) => Min() + h(KBins) * i;
+        public int CountInside(double From,double To) => Values.Count(x => x > From && x <= To);
+        public int CountInside2(double From, double To) => Values.Where(x => x > From && x <= To).Count();
+        public int CountInside(int i) => CountInside(CBin(i)-h(KBins)/2, CBin(i)+h(KBins)/2);
 
     }
 }

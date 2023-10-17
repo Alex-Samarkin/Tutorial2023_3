@@ -72,6 +72,8 @@ namespace TestApp1
             histogram.Construct(items);
             Console.WriteLine(histogram);
 
+           
+
             Console.ReadLine();
         }
     }
