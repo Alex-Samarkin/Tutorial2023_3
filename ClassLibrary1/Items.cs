@@ -10,6 +10,7 @@ namespace ClassLibrary1
     public class Items
     {
         public List<double> Values { get; set; } = new List<double>();
+        public int Count() => Values.Count;
 
         public void Fill(double value = 0, int n = 100)
         {
@@ -216,6 +217,9 @@ namespace ClassLibrary1
         public double Mean() => Sum() / Values.Count;
         public double Variance() => Sum(Mean(),2.0) / (Values.Count-1);
         public double SD() => Math.Sqrt(Variance());
+        public double Se() => SD() / Math.Sqrt(Values.Count);
+        public double Skewness() => Sum(Mean(), 3.0) / Math.Pow(Variance(), 1.5);
+        public double Kurtosis() => Sum(Mean(), 4.0) / Math.Pow(Variance(), 2.0);
 
         public List<double> Sorted
         {

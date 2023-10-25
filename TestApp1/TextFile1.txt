@@ -5,3 +5,14 @@
                 var n = items.CountInside(i);
                 Console.WriteLine($"{i} {c} {n}");
             }
+
+            // добавить в интервал
+       public Interval Interval(double mean, double sd, double n, double P = 0.95)
+        {
+            double t = StudentT.PDF(0.0,1.0,n,(1.0- P) / 2.0);
+            double z = t * sd / Math.Sqrt(n);
+            double lower = - z;
+            double upper = + z;
+            return new Interval() { Nominal = mean, LowerDev = lower, UpperDev = upper };
+        }
+        public Interval Interval(Items items, double P = 0.95) => Interval(items.Mean(), items.SD(), items.Count(), P);

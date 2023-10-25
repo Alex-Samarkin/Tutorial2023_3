@@ -72,7 +72,8 @@ namespace TestApp1
             histogram.Construct(items);
             Console.WriteLine(histogram);
 
-           
+           // StudentDistr distr = new StudentDistr();
+           // Console.WriteLine(distr.Interval(items));
 
             Console.ReadLine();
         }
