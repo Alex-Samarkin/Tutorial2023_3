@@ -68,12 +68,13 @@ namespace TestApp1
             histogram.Construct(items);
             Console.WriteLine(histogram);
 
-            items.RandomNormal(1000000);
+            items.RandomNormal(100);
             histogram.Construct(items);
             Console.WriteLine(histogram);
 
-           // StudentDistr distr = new StudentDistr();
-           // Console.WriteLine(distr.Interval(items));
+            StudentDistr distr = new StudentDistr();
+            Console.WriteLine(distr.Interval(items));
+            Console.WriteLine(distr.T_test(0.04,items));
 
             Console.ReadLine();
         }

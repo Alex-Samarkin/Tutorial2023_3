@@ -43,10 +43,25 @@ namespace ClassLibrary1
             // https://en.wikipedia.org/wiki/Student%27s_t-distribution#Confidence_intervals
 
             // TODO : добавить код для расчета интервала
-
-            return new Interval();
+            double t = StudentT.PDF(0.0, 1.0, n-1, (1.0 - P) / 2.0);
+            double z = t * sd / Math.Sqrt(n);
+            double lower = -z;
+            double upper = +z;
+            return new Interval() { Nominal = mean, LowerDev = lower, UpperDev = upper };
         }
         public Interval Interval(Items items, double P = 0.95) => Interval(items.Mean(), items.SD(), items.Count(), P);
+
+        public double T_test(double c,double mean, double sd, double n, double P = 0.95)
+        {
+            var alpha = (1 - P) / 2.0;
+            var t = (mean - c) / (sd / Math.Sqrt(n));
+            
+            var p =2.0*(1.0-StudentT.CDF(0.0, 1.0, n - 1, Math.Abs(t)));
+            return p;
+        }
+        public bool T_test_bool(double c, double mean, double sd, double n, double P = 0.95) => T_test(c, mean, sd, n, P) < (1-P);
+        public double T_test(double c, Items items, double P = 0.95) => T_test(c,items.Mean(), items.SD(), items.Count(), P);
+        public bool T_test_bool(double c, Items items, double P = 0.95) => T_test_bool(c, items.Mean(), items.SD(), items.Count(), P);
 
     }
 }
